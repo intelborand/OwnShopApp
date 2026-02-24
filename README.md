@@ -42,6 +42,40 @@ To learn more about developing your project with Expo, look at the following res
 - [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
+## App overview
+
+This repository contains **MyShop**, a simple e-commerce demo built with Expo and React Native. The
+application allows users to:
+
+1. Browse a list of products fetched from [Fake Store API](https://fakestoreapi.com/products).
+2. Add new products by filling out a form; submissions are posted to the API and
+   immediately added to local state.
+3. Navigate between screens using Expo Router, including a custom camera screen for
+   taking product images.
+
+The main architectural patterns and technologies used in the project include:
+
+- **Expo (SDK 48+)** with managed workflow for cross-platform mobile development.
+- **React Native** components and stylesheets for UI.
+- **TypeScript** for type safety and clear interfaces (`Product`, context types, etc.).
+- **Expo Router** (file-based routing) to define screens under `app/`, enabling
+  navigation via `useRouter()` and nested layouts.
+- **React Context** (`productContext.tsx`) for shared application state (product list,
+  loading/error flags) and functions (`getProducts`, `addProduct`).
+- **fetch API** to interact with the external Fake Store REST service; `GET` for
+  listing and `POST` for creating products.
+- **react-hook-form** for managing and validating form inputs in `add-product.tsx`.
+- **Expo Camera** (via a separate screen) to capture images, integrated with navigation
+  parameters to return the photo URI to the form.
+- **Expo vector icons** (`@expo/vector-icons/Ionicons`) for button icons.
+- Custom styling through `StyleSheet.create(...)` and conditional rendering of errors.
+
+Additional conveniences in the workspace:
+
+- `npm run reset-project` moves starter code to `app-example` and clears the `app`
+  folder for a fresh project.
+- ESLint, tsconfig, and other config files provided by `create-expo-app`.
+
 ## Join the community
 
 Join our community of developers creating universal apps.
