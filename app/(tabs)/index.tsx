@@ -1,7 +1,7 @@
 import { FlatList, Text, View } from "react-native";
 
 import ProductCard from "../components/ProductItem";
-import { useProducts } from "../productContext";
+import { useProducts } from "../context/productContext";
 
 export default function Index() {
   const { products, loading, error } = useProducts();

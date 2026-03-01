@@ -3,13 +3,14 @@ import { Button as NativeButton } from "@react-navigation/elements";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import {
+  Image,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
-import { Product, useProducts } from "../productContext";
+import { Product, useProducts } from "../context/productContext";
 
 type Inputs = {
   title: string;
@@ -110,6 +111,21 @@ export default function AddProductScreen() {
         />
       ))}
 
+      {photoFromParams && (
+        <View>
+          <TouchableOpacity
+            onPress={() => router.navigate("/camera")}
+            style={{ position: "absolute", top: 22, left: 80, zIndex: 1 }}
+          >
+            <Ionicons name="close" size={20} color="#fff" />
+          </TouchableOpacity>
+          <Image
+            source={{ uri: photoFromParams as string }}
+            style={{ width: 100, height: 120, marginTop: 20 }}
+          />
+        </View>
+      )}
+
       <View style={styles.button}>
         <TouchableOpacity
           style={styles.cameraButton}
@@ -165,7 +181,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 15,
+    marginVertical: 10,
   },
   text: {
     color: "#fff",
