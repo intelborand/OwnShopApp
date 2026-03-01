@@ -56,7 +56,6 @@ export default function AddProductScreen() {
       } as Omit<Product, "id" | "rating">;
 
       await addProduct(productPayload);
-      console.log("Product added successfully:", productPayload);
       resetField("title");
       resetField("price");
       resetField("description");

@@ -17,7 +17,6 @@ export default function CameraScreen() {
       try {
         const result = await cameraRef.current.takePictureAsync();
         setPhoto(result.uri);
-        console.log("Photo taken:", result.uri);
       } catch (e) {
         alert("Failed to take photo. Please try again.");
       }
@@ -29,12 +28,10 @@ export default function CameraScreen() {
   };
 
   if (!permission) {
-    // Camera permissions are still loading.
     return <View />;
   }
 
   if (!permission.granted) {
-    // Camera permissions are not granted yet.
     return (
       <View style={styles.container}>
         <Text style={styles.message}>
