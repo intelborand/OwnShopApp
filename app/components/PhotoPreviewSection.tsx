@@ -21,7 +21,7 @@ export default function PhotoPreviewSection({
   const router = useRouter();
   return (
     <View style={styles.previewContainer}>
-      <Text style={styles.message}>Here's the photo you took:</Text>
+      <Text style={styles.message}>Here&apos;s the photo you took:</Text>
       <Image source={{ uri: photo! }} style={{ width: 400, height: 300 }} />
       <View style={styles.button}>
         <TouchableOpacity

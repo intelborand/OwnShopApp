@@ -17,7 +17,7 @@ export default function CameraScreen() {
       try {
         const result = await cameraRef.current.takePictureAsync();
         setPhoto(result.uri);
-      } catch (e) {
+      } catch {
         alert("Failed to take photo. Please try again.");
       }
     }

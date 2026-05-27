@@ -61,7 +61,7 @@ export default function AddProductScreen() {
       resetField("description");
       resetField("category");
       resetField("image");
-    } catch (e) {
+    } catch {
       alert("Failed to add product. Please try again.");
     }
   };
